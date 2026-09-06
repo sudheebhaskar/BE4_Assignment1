@@ -10,6 +10,15 @@ app.use(express.json());
 
 initializeDatabase();
 
+const cors = require("cors");
+const corsOptions = {
+  origin: "*",
+  credentials: true,
+  optionSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
+
 
 
 // 1. CREATE A NEW BOOK
@@ -349,6 +358,9 @@ app.delete("/books/:bookId", async (req, res) => {
     });
   }
 });
+
+
+
 
 
 // START SERVER
